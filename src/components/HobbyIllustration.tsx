@@ -3,6 +3,7 @@ type HobbyIllustrationProps = {
   label: string;
   illustration: string;
   rotation: string;
+  className?: string;
 };
 
 export function HobbyIllustration({
@@ -10,15 +11,16 @@ export function HobbyIllustration({
   label,
   illustration,
   rotation,
+  className,
 }: HobbyIllustrationProps) {
   return (
-    <li className="hobby" data-hobby={hobby} style={{ rotate: rotation }}>
+    <div className={className ? `hobby ${className}` : "hobby"} data-hobby={hobby} style={{ rotate: rotation }}>
       <button type="button" aria-label={label}>
         <img src={illustration} alt="" width="48" height="48" />
         <span className="hobby-label" aria-hidden="true">
           {label}
         </span>
       </button>
-    </li>
+    </div>
   );
 }

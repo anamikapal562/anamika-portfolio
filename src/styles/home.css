@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: 22px;
   width: min(460px, calc(100% - 28px));
-  margin: 18px auto 28px;
+  margin: 36px auto 32px;
   z-index: 1;
 }
 
@@ -517,19 +517,116 @@
   top: 0.55em;
 }
 
-.hobby-kicker {
-  margin: 0 0 2px;
-  text-align: center;
-  font-size: 26px;
-  color: var(--ink);
+.left-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
 }
 
-.hobby-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2px 6px;
-  list-style: none;
+.stack-focus,
+.stack-folders,
+.piece-id .shift {
+  position: relative;
+}
+
+.stack-focus {
+  width: min(318px, 100%);
+  --drift: 14px;
+}
+
+.stack-folders {
+  width: min(318px, 100%);
+  --drift: 10px;
+}
+
+.focus-card h2 {
+  max-width: 11em;
+}
+
+.hobby-spot {
+  position: absolute;
+  z-index: 4;
+  width: 52px;
+  height: 52px;
+}
+
+.spot-hero {
+  top: 18px;
+  right: 12px;
+}
+
+.spot-focus {
+  top: 12px;
+  right: 8px;
+  bottom: auto;
+}
+
+.stack-focus .focus-card {
+  padding-right: 54px;
+}
+
+.spot-design {
+  left: 6px;
+  bottom: 8px;
+}
+
+.spot-work,
+.spot-about,
+.spot-contact {
+  top: 2px;
+  right: 0;
+}
+
+.home-follow {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto 12px;
+}
+
+.home-follow .archive {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+
+.home-follow .section-head,
+.home-personal,
+.home-contact {
+  position: relative;
+  padding-right: 68px;
+}
+
+.home-follow .bring {
+  margin-top: 40px;
+}
+
+.home-follow .notes {
+  margin-top: 48px;
+}
+
+.home-personal,
+.home-contact {
+  margin-top: 48px;
+}
+
+.home-personal h2,
+.home-contact h2 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.05;
+  margin: 4px 0 12px;
+}
+
+.home-personal p {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.archive {
+  position: relative;
 }
 
 .hobby button {
@@ -575,7 +672,7 @@
 }
 
 .archive {
-  width: min(1040px, calc(100% - 32px));
+  width: min(1100px, calc(100% - 32px));
   margin: 12px auto 48px;
 }
 
@@ -741,16 +838,12 @@
     justify-self: center;
   }
 
-  .piece-focus {
+  .piece-left {
     grid-column: 1;
   }
 
   .piece-exp {
     grid-column: 2;
-  }
-
-  .piece-folders {
-    grid-column: 1;
   }
 
   .piece-stamp {
@@ -801,8 +894,8 @@
   .desk {
     display: block;
     width: min(1140px, calc(100% - 40px));
-    height: 980px;
-    margin: 6px auto 10px;
+    height: 600px;
+    margin: 52px auto 36px;
   }
 
   .piece {
@@ -822,22 +915,35 @@
     z-index: 6;
   }
 
-  .piece-focus {
-    width: 286px;
+  .piece-left {
+    width: 318px;
     left: 0;
-    top: 46px;
-    --drift: 14px;
+    top: 18px;
   }
 
   .focus-card {
     --tilt: -6.5deg;
   }
 
-  .piece-folders {
-    width: 318px;
-    left: 12px;
-    bottom: 18px;
-    --drift: 10px;
+  .spot-hero {
+    top: 132px;
+    right: -64px;
+  }
+
+  .spot-focus {
+    top: 36px;
+    right: -58px;
+    bottom: auto;
+  }
+
+  .stack-focus .focus-card {
+    padding-right: 16px;
+  }
+
+  .spot-design {
+    left: auto;
+    right: -58px;
+    bottom: 42px;
   }
 
   .desktop-card {
