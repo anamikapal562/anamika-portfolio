@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img">
-  <rect width="1200" height="750" fill="#E5EFE6"/>
-  <rect x="48" y="48" width="1104" height="654" fill="#F7FBF7" stroke="#3E6B52" stroke-width="2" stroke-dasharray="8 8"/>
-  <path d="M48 48h36M48 48v36M1152 48h-36M1152 48v36M48 702h36M48 702v-36M1152 702h-36M1152 702v-36" fill="none" stroke="#3E6B52" stroke-width="2"/>
-  <text x="600" y="330" text-anchor="middle" font-family="Georgia, serif" font-size="28" letter-spacing="6" fill="#3E6B52">PLACEHOLDER</text>
-  <text x="600" y="392" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#2A2420">When it is unsure</text>
-  <text x="600" y="446" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#5E534A">State visual to be added</text>
-</svg>

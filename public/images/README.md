@@ -6,6 +6,6 @@ Replace these files when the real assets are ready. Keep the filenames, or updat
 | --- | --- |
 | Portrait | `profile/anamika.svg` |
 | Résumé PDF | `resume/anamika-pal-resume.pdf` |
-| Study covers and frames | `projects/*.svg` |
+| Project visuals | `projects/quark-data-studio.svg`, `ai-ux-audit.svg`, `operation-center-delegation.svg`, `unnati.svg`, and the matching `*-02.svg` frames |
 
 The files currently in this folder are labeled placeholders. They are not project screenshots.

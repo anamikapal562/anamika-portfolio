@@ -84,16 +84,16 @@ export function HomeDesk() {
               <p className="id-tagline">{profile.tagline}</p>
               <dl className="id-meta">
                 <div>
-                  <dt>Experience</dt>
-                  <dd>{profile.experienceLabel}</dd>
-                </div>
-                <div>
                   <dt>Location</dt>
                   <dd>{profile.location}</dd>
                 </div>
                 <div>
                   <dt>Company</dt>
                   <dd>{profile.company}</dd>
+                </div>
+                <div>
+                  <dt>Practice</dt>
+                  <dd>{profile.domains}</dd>
                 </div>
               </dl>
             </article>
@@ -111,7 +111,7 @@ export function HomeDesk() {
                   <i />
                 </span>
                 <h2 id="focus-heading">
-                  Currently focused on <span className="spark">✦</span>
+                  Currently designing →
                 </h2>
                 <ul className="focus-list">
                   {focusItems.map((item) => (

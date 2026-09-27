@@ -11,23 +11,21 @@ export function CaseStudyPage({ slug }: { slug: string }) {
       <Link className="back-link" href="/work">
         ← All work
       </Link>
-      <p className="kicker">Study {project.index}</p>
+      <p className="kicker">
+        {project.index} · {project.eyebrow}
+      </p>
       <h1>{project.title}</h1>
       <p className="lede">{project.summary}</p>
+      <p className="product-name">{project.productName}</p>
       <dl className="meta-row">
-        <div>
-          <dt>Role</dt>
-          <dd>{project.role}</dd>
-        </div>
-        <div>
-          <dt>Context</dt>
-          <dd>{project.context}</dd>
-        </div>
-        <div>
-          <dt>Focus</dt>
-          <dd>{project.focus}</dd>
-        </div>
+        {project.meta.map((item) => (
+          <div key={item.label}>
+            <dt>{item.label}</dt>
+            <dd>{item.value}</dd>
+          </div>
+        ))}
       </dl>
+      {project.outcome && <p className="outcome">{project.outcome}</p>}
       <figure className="case-hero">
         <img src={project.cover.src} alt={project.cover.alt} />
       </figure>
@@ -52,7 +50,7 @@ export function CaseStudyPage({ slug }: { slug: string }) {
         {project.visuals.map((visual) => (
           <figure key={visual.src}>
             <img src={visual.src} alt={visual.alt} />
-            <figcaption>{visual.label} — placeholder visual</figcaption>
+            <figcaption>{visual.label}</figcaption>
           </figure>
         ))}
       </div>

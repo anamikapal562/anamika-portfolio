@@ -13,6 +13,7 @@ import { useRouter } from "./use-router";
 import "./styles/global.css";
 import "./styles/home.css";
 import "./styles/pages.css";
+import "./styles/work.css";
 
 function Page() {
   const { path } = useRouter();

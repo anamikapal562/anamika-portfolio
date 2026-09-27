@@ -7,9 +7,11 @@ export const profile = {
   company: "Zeta",
   experienceLabel: "5+ years experience",
   years: "5+ Years",
-  tagline:
-    "Designing thoughtful experiences for complex products, people and workflows.",
+  tagline: "5+ years designing products that make complex systems easier to navigate.",
+  domains: "Enterprise UX · Fintech · AI",
   email: "hello@anamikapal.com",
+  /** Replace with a real profile URL. Do not invent one. */
+  linkedin: null as string | null,
   portrait: {
     src: "/images/profile/anamika.svg",
     alt: "Illustrated placeholder for a portrait of Anamika Pal",
@@ -19,27 +21,26 @@ export const profile = {
 
 export const focusItems = [
   "AI-powered experiences",
-  "Simplifying complex workflows",
-  "Designing enterprise products",
-  "Building scalable design systems",
-  "Prototyping & experimentation",
+  "Complex workflows",
+  "Enterprise products",
+  "Better ways to work",
 ] as const;
 
 export const practiceAreas = [
-  { label: "Enterprise UX", slug: "complex-workflows", tone: "clay" },
-  { label: "Fintech & Banking", slug: "complex-workflows", tone: "brown" },
-  { label: "AI Products", slug: "ai-experiences", tone: "sage" },
-  { label: "Design Systems", slug: "design-systems", tone: "peach" },
-  { label: "Complex Workflows", slug: "complex-workflows", tone: "orange" },
-  { label: "0 → 1 Products", slug: "design-systems", tone: "sand" },
+  { label: "Enterprise UX", slug: "quark-data-studio", tone: "clay" },
+  { label: "Fintech & Banking", slug: "unnati-credit-upi", tone: "brown" },
+  { label: "AI Products", slug: "ai-ux-audits", tone: "sage" },
+  { label: "Data Products", slug: "quark-data-studio", tone: "peach" },
+  { label: "Complex Workflows", slug: "operation-center-delegation", tone: "orange" },
+  { label: "Credit + UPI", slug: "unnati-credit-upi", tone: "sand" },
 ] as const;
 
 export const experiencePoints = [
-  "Product Design",
-  "Enterprise UX",
+  "Enterprise SaaS",
   "Fintech",
-  "Banking",
-  "AI Experiences",
+  "Data products",
+  "Complex workflows",
+  "AI experimentation",
 ] as const;
 
 export const creativeRoots = [
@@ -48,6 +49,96 @@ export const creativeRoots = [
   "Branding",
   "Visual storytelling",
 ] as const;
+
+/** Years after 2021 are intentionally unset until confirmed. */
+export const careerPath = [
+  {
+    year: "2021",
+    title: "Graphic Design",
+    detail: "Visual storytelling · Branding · Explainers",
+  },
+  {
+    year: "",
+    title: "UX Design",
+    detail: "Enterprise products · Workflows · Research",
+  },
+  {
+    year: "",
+    title: "UX Designer II",
+    detail: "Product thinking · Complex systems · AI experimentation",
+  },
+] as const;
+
+export const careerSpan = "5+ years at Zeta";
+
+export const strengths = [
+  {
+    title: "Complex Systems",
+    body: "I enjoy turning complicated enterprise workflows into experiences people can understand and navigate.",
+  },
+  {
+    title: "Product Thinking",
+    body: "I like understanding the problem, constraints and user needs before jumping into the interface.",
+  },
+  {
+    title: "Visual Craft",
+    body: "My foundation in graphic design continues to influence how I approach hierarchy, interaction and visual storytelling.",
+  },
+  {
+    title: "AI + Experimentation",
+    body: "I actively explore AI tools and new workflows to make design exploration and delivery faster and more scalable.",
+  },
+] as const;
+
+export type CollaboratorNote = {
+  name: string;
+  role: string;
+  /** null until a real URL is added in this file. */
+  linkedin: string | null;
+  emphasis: string;
+  paragraphs: string[];
+  tilt: string;
+  paper: "butter" | "slate" | "blush";
+};
+
+export const collaboratorNotes: CollaboratorNote[] = [
+  {
+    name: "Uditshankar Dixit",
+    role: "Director of Design, Zuora",
+    linkedin: null,
+    emphasis: "Quark · Design patterns · Experimentation",
+    tilt: "-1deg",
+    paper: "butter",
+    paragraphs: [
+      "It was great to see you shape Quark to where it is. Across all highs and lows you were able to create domain and persona optimised designs.",
+      "Your gift and willingness to experiment while not breaking rules gave us many design patterns and helped GDS. Keep up the fantastic design work.",
+    ],
+  },
+  {
+    name: "Siddhartha Sengupta",
+    role: "Sr. UX Designer, Zeta Suite",
+    linkedin: null,
+    emphasis: "Quark · Research · Collaboration · Growth",
+    tilt: "1deg",
+    paper: "slate",
+    paragraphs: [
+      "I would like to thank Anamika for being a constant support on Quark Data Studio and Analytics Center. It was heartening to see her excel not just in her craft but also various initiatives which enriches the culture of the design team.",
+      "On Quark, she demonstrated her zeal to achieve excellence. She accepted and adapted to the vision I had for QDS and contributed towards it. She proactively did primary and secondary research and documented them well so they can be shared with other product designers for reference. All evidences of her growth in #KnowledgeAndDeliverables.",
+    ],
+  },
+  {
+    name: "Sanjivani Iyer",
+    role: "Manager, InfoDev Team",
+    linkedin: null,
+    emphasis: "Credit · Visual storytelling · Prototyping",
+    tilt: "-1.5deg",
+    paper: "blush",
+    paragraphs: [
+      "Anamika's work with Tachyon Credit videos has been excellent. She has created conceptual videos that clearly explain a lifecycle stage of credit cards.",
+      "She has also done commendable job on creation of the prototypes for the Info architecture proposal.",
+    ],
+  },
+];
 
 export type ProjectSection = {
   title: string;
@@ -61,187 +152,207 @@ export type ProjectVisual = {
   label: string;
 };
 
+export type ProjectMeta = {
+  label: string;
+  value: string;
+};
+
 export type Project = {
   slug: string;
   index: string;
   title: string;
+  kicker: string;
+  eyebrow: string;
+  productName: string;
   summary: string;
   tags: string[];
-  role: string;
-  context: string;
-  focus: string;
-  tone: "peach" | "sage" | "sand";
+  meta: ProjectMeta[];
+  layout: "feature" | "half" | "wide";
+  tone: "sand" | "sage" | "peach" | "ink";
+  /** Visual treatment only. Does not add claims. */
+  motif: "unify" | "pipeline" | "handoff" | "consumer";
+  outcome?: string;
   cover: ProjectVisual;
   visuals: ProjectVisual[];
   sections: ProjectSection[];
 };
 
+const placeholderNote =
+  "The full case study will be added here. These frames are placeholders for the project visuals.";
+
 export const projects: Project[] = [
   {
-    slug: "complex-workflows",
+    slug: "quark-data-studio",
     index: "01",
-    title: "Making dense workflows feel obvious",
+    title: "Streamlined Data Operations",
+    kicker: "Zeta SaaS Product Design",
+    eyebrow: "Case Study · Private",
+    productName: "Quark Data Studio",
     summary:
-      "Enterprise banking tools often show everything at once. The design work is deciding what a person needs in the moment — and what can wait a step away.",
-    tags: ["Enterprise UX", "Fintech", "Workflows"],
-    role: "Product design & UX",
-    context: "B2B fintech and banking platforms at Zeta",
-    focus: "Complex operational workflows",
-    tone: "peach",
-    cover: {
-      src: "/images/projects/complex-workflows-cover.svg",
-      alt: "Placeholder frame for a workflow study cover",
-      label: "Workflow cover",
-    },
-    visuals: [
-      {
-        src: "/images/projects/complex-workflows-map.svg",
-        alt: "Placeholder frame for a workflow map",
-        label: "Journey & exceptions",
-      },
-      {
-        src: "/images/projects/complex-workflows-screen.svg",
-        alt: "Placeholder frame for a key screen",
-        label: "The decision screen",
-      },
+      "Designing a unified data platform — Quark Data Studio — to efficiently manage, process, explore and integrate data applications like reports, extracts, charts and dashboards.",
+    tags: ["Enterprise UX", "SaaS", "Data Products", "Complex Workflows"],
+    meta: [
+      { label: "Role", value: "Product / UX Designer" },
+      { label: "Company", value: "Zeta" },
+      { label: "Domain", value: "Enterprise SaaS" },
     ],
-    sections: [
-      {
-        title: "The problem",
-        paragraphs: [
-          "People using enterprise banking products are expert, busy, and often interrupted. A single task can still cross approvals, exceptions, permissions, and data that was written for the system rather than the person.",
-          "The interface then asks them to reconstruct the story of the work from scattered statuses and tables. The product feels complicated even when the underlying task is knowable.",
-        ],
-      },
-      {
-        title: "How I approach it",
-        paragraphs: [
-          "I start with the sequence, not the screen. Who touches the work, what decision they are actually making, and where they stop and ask someone else. Once that is clear, the design problem gets smaller and more honest — not “redesign the module,” but “make this decision possible without a walkthrough.”",
-        ],
-        bullets: [
-          "Map the real path, including the exceptions people actually hit",
-          "Name the decision each step is asking for",
-          "Keep density, and fix hierarchy, language, and state",
-          "Leave a pattern the next workflow can reuse",
-        ],
-      },
-      {
-        title: "What I pay attention to",
-        paragraphs: [
-          "Language that matches the job, not the database. Empty, loading, and error moments — where enterprise UX usually frays. And the quiet confidence of a screen that can stay information-rich without shouting.",
-          "Most of this work lives inside products I can’t publish in full. The frames on this page are ready for the visuals; the structure is how I want the study to be read.",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "design-systems",
-    index: "02",
-    title: "A system that keeps the product coherent",
-    summary:
-      "A design system is not a sticker sheet. It is how a large product stays recognizable when many people are designing it at once.",
-    tags: ["Design Systems", "Visual Design", "Enterprise"],
-    role: "Design systems & visual design",
-    context: "Enterprise product design at Zeta",
-    focus: "Shared patterns for complex products",
+    layout: "feature",
     tone: "sand",
+    motif: "unify",
     cover: {
-      src: "/images/projects/design-systems-cover.svg",
-      alt: "Placeholder frame for a design system study cover",
-      label: "System cover",
+      src: "/images/projects/quark-data-studio.svg",
+      alt: "Placeholder for the Quark Data Studio project image",
+      label: "PROJECT IMAGE — QUARK DATA STUDIO",
     },
     visuals: [
       {
-        src: "/images/projects/design-systems-tokens.svg",
-        alt: "Placeholder frame for foundations and tokens",
-        label: "Foundations",
-      },
-      {
-        src: "/images/projects/design-systems-patterns.svg",
-        alt: "Placeholder frame for interface patterns",
-        label: "Patterns in use",
+        src: "/images/projects/quark-data-studio-02.svg",
+        alt: "Placeholder for a second Quark Data Studio visual",
+        label: "PROJECT IMAGE — QUARK DATA STUDIO",
       },
     ],
     sections: [
       {
-        title: "The problem",
+        title: "The work",
         paragraphs: [
-          "Enterprise products grow by accumulation. New workflows arrive with new one-off components, slightly different spacing, and words for the same idea. The product still functions. It just stops feeling like one product.",
-          "A system has to earn its place. If it only documents what already shipped, teams route around it the next time a workflow gets strange.",
+          "Designing a unified data platform — Quark Data Studio — to efficiently manage, process, explore and integrate data applications like reports, extracts, charts and dashboards.",
+          "This case study is private. The page is structured so the narrative and images can be added without redesigning the site.",
         ],
       },
       {
-        title: "How I approach it",
+        title: "Visuals",
+        paragraphs: [placeholderNote],
+      },
+    ],
+  },
+  {
+    slug: "ai-ux-audits",
+    index: "02",
+    title: "Scaling UX Audits with AI Agents",
+    kicker: "AI-Augmented Design Operations",
+    eyebrow: "Initiative · AI workflow",
+    productName: "Agentic UX audit system",
+    summary:
+      "Built an agentic UX audit system using Claude, Figma MCP, Chrome MCP and Playwright that reduced audit effort from a full day to approximately 1–1.5 hours, while automatically generating developer-ready audit reports.",
+    tags: ["AI", "Design Operations", "UX Audits", "Automation"],
+    meta: [
+      { label: "Role", value: "Designer · AI Workflow Builder" },
+      { label: "Focus", value: "AI + UX Operations" },
+    ],
+    layout: "half",
+    tone: "sage",
+    motif: "pipeline",
+    outcome: "A full day → about 1–1.5 hours",
+    cover: {
+      src: "/images/projects/ai-ux-audit.svg",
+      alt: "Placeholder for the AI UX audit system project image",
+      label: "PROJECT IMAGE — AI UX AUDIT SYSTEM",
+    },
+    visuals: [
+      {
+        src: "/images/projects/ai-ux-audit-02.svg",
+        alt: "Placeholder for a second AI UX audit visual",
+        label: "PROJECT IMAGE — AI UX AUDIT SYSTEM",
+      },
+    ],
+    sections: [
+      {
+        title: "The initiative",
         paragraphs: [
-          "I treat the system as a product with users: the designers and engineers shipping the next workflow. Foundations — type, color, elevation, language — come first, then the patterns that show up every time a task is dense: filters, status, review, empty states, decision panels.",
-          "Graphic design is where I started, so visual craft is not a coat of paint at the end. It is how hierarchy and trust show up in a tool someone uses all day.",
+          "Built an agentic UX audit system using Claude, Figma MCP, Chrome MCP and Playwright that reduced audit effort from a full day to approximately 1–1.5 hours, while automatically generating developer-ready audit reports.",
         ],
         bullets: [
-          "Decide what must be consistent, and what a team can flex",
-          "Design the awkward states, not only the happy components",
-          "Write guidelines in the language of the job to be done",
-          "Pair the kit with a real workflow so it gets proven, not just published",
+          "Claude",
+          "Figma MCP",
+          "Chrome MCP",
+          "Playwright",
         ],
       },
       {
-        title: "What the study will show",
+        title: "Outcome",
         paragraphs: [
-          "Foundations, a handful of patterns under pressure, and the before/after of a workflow that got clearer because the system existed. Those visuals are placeholders for now.",
+          "Audit effort moved from a full day to approximately 1–1.5 hours, with developer-ready audit reports generated automatically.",
+          placeholderNote,
         ],
       },
     ],
   },
   {
-    slug: "ai-experiences",
+    slug: "operation-center-delegation",
     index: "03",
-    title: "AI that explains itself",
+    title: "Designing Delegation for Smarter Task Management",
+    kicker: "Zeta SaaS Feature Design",
+    eyebrow: "Feature · Workflow",
+    productName: "Operation Center",
     summary:
-      "An AI feature in an operational product fails when it hands someone an answer and leaves them alone with the decision to trust it.",
-    tags: ["AI Products", "Prototyping", "Enterprise UX"],
-    role: "Product design & prototyping",
-    context: "AI-powered experiences within enterprise products",
-    focus: "Legible, editable assistance",
-    tone: "sage",
+      "Designed a delegation feature for Zeta's SaaS platform Operation Center, enabling seamless task handoffs and improving efficiency in multi-assessor workflows.",
+    tags: ["Enterprise UX", "Workflow Design", "SaaS", "Task Management"],
+    meta: [
+      { label: "Role", value: "UX Designer" },
+      { label: "Product", value: "Operation Center" },
+      { label: "Focus", value: "Complex Workflow Design" },
+    ],
+    layout: "half",
+    tone: "ink",
+    motif: "handoff",
     cover: {
-      src: "/images/projects/ai-experiences-cover.svg",
-      alt: "Placeholder frame for an AI experience study cover",
-      label: "AI study cover",
+      src: "/images/projects/operation-center-delegation.svg",
+      alt: "Placeholder for the Operation Center delegation project image",
+      label: "PROJECT IMAGE — OPERATION CENTER DELEGATION",
     },
     visuals: [
       {
-        src: "/images/projects/ai-experiences-flow.svg",
-        alt: "Placeholder frame for an assistance flow",
-        label: "Suggest, edit, confirm",
-      },
-      {
-        src: "/images/projects/ai-experiences-states.svg",
-        alt: "Placeholder frame for trust and error states",
-        label: "When it is unsure",
+        src: "/images/projects/operation-center-delegation-02.svg",
+        alt: "Placeholder for a second Operation Center visual",
+        label: "PROJECT IMAGE — OPERATION CENTER DELEGATION",
       },
     ],
     sections: [
       {
-        title: "The problem",
+        title: "The work",
         paragraphs: [
-          "In fintech and banking tools, a suggestion is never just a suggestion. Someone has to stand behind the outcome. If the interface hides the source, the edit, or the uncertainty, the model has made the product harder to trust, not easier to use.",
+          "Designed a delegation feature for Zeta's SaaS platform Operation Center, enabling seamless task handoffs and improving efficiency in multi-assessor workflows.",
+          placeholderNote,
         ],
       },
+    ],
+  },
+  {
+    slug: "unnati-credit-upi",
+    index: "04",
+    title: "Credit Enablement in UPI Apps",
+    kicker: "Zeta Web App Design",
+    eyebrow: "Fintech · Consumer",
+    productName: "Unnati",
+    summary:
+      "Co-designed the Unnati app, enabling credit functionality within UPI apps. The work was showcased at Zeta's Democratizing Banking 2023 event.",
+    tags: ["Fintech", "UPI", "Credit", "Mobile Experience"],
+    meta: [
+      { label: "Role", value: "Product / UX Designer" },
+      { label: "Domain", value: "Fintech" },
+      { label: "Focus", value: "Credit + UPI" },
+    ],
+    layout: "wide",
+    tone: "peach",
+    motif: "consumer",
+    cover: {
+      src: "/images/projects/unnati.svg",
+      alt: "Placeholder for the Unnati project image",
+      label: "PROJECT IMAGE — UNNATI",
+    },
+    visuals: [
       {
-        title: "How I approach it",
-        paragraphs: [
-          "I design the experience around the model: what is proposed, what remains editable, what evidence is visible, and how a person stays responsible for the decision. Prototypes are how I find out whether that contract is understandable before anyone debates the polish.",
-        ],
-        bullets: [
-          "Show the suggestion and the reason in the same glance",
-          "Make the edit path shorter than the accept path when stakes are high",
-          "Design the unsure, wrong, and empty states with the same care as the success state",
-          "Prototype the conversation between person and system, not only the final UI",
-        ],
+        src: "/images/projects/unnati-02.svg",
+        alt: "Placeholder for a second Unnati visual",
+        label: "PROJECT IMAGE — UNNATI",
       },
+    ],
+    sections: [
       {
-        title: "What the study will show",
+        title: "The work",
         paragraphs: [
-          "A flow from suggestion to committed decision, and the states that keep a person in charge. The frames are marked as placeholders so they are never mistaken for shipped product UI.",
+          "Co-designed the Unnati app, enabling credit functionality within UPI apps. The work was showcased at Zeta's Democratizing Banking 2023 event.",
+          placeholderNote,
         ],
       },
     ],
@@ -265,7 +376,7 @@ export function metaFor(path: string) {
     return {
       title: "Work — Anamika Pal",
       description:
-        "Selected product design work by Anamika Pal: complex enterprise workflows, design systems, and AI experiences in fintech and banking.",
+        "Selected work by Anamika Pal: Quark Data Studio, AI-assisted UX audits, Operation Center delegation, and the Unnati credit experience.",
     };
   }
 
@@ -283,7 +394,7 @@ export function metaFor(path: string) {
     return {
       title: "About — Anamika Pal",
       description:
-        "Anamika Pal is a User Experience Designer II at Zeta in Bangalore, designing user-centric experiences for complex B2B fintech and banking products.",
+        "Anamika Pal is a User Experience Designer II at Zeta in Bangalore, designing for complex enterprise and fintech products.",
     };
   }
 
@@ -291,7 +402,7 @@ export function metaFor(path: string) {
     return {
       title: "Résumé — Anamika Pal",
       description:
-        "Résumé of Anamika Pal, User Experience Designer II / Product Designer at Zeta, Bangalore. Five years across graphic design, enterprise UX, fintech, and design systems.",
+        "Résumé of Anamika Pal, User Experience Designer II / Product Designer at Zeta, Bangalore.",
     };
   }
 
@@ -299,7 +410,7 @@ export function metaFor(path: string) {
     return {
       title: "Contact — Anamika Pal",
       description:
-        "Get in touch with Anamika Pal, a UX and product designer in Bangalore, about enterprise, fintech, and AI product work.",
+        "Get in touch with Anamika Pal, a UX and product designer in Bangalore, about enterprise, fintech, and complex product work.",
     };
   }
 

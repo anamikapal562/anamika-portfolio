@@ -1,3 +1,4 @@
+import { CareerPath } from "../components/CareerPath";
 import { profile } from "../data/content";
 
 const practices = [
@@ -22,10 +23,9 @@ export function AboutPage() {
         </aside>
         <div className="about-copy">
           <p>
-            I’m {profile.name}, a {profile.roleLine.toLowerCase()} based in{" "}
-            {profile.location}. For the past five years I’ve been creating user-centric
-            designs at {profile.company}, evolving from a graphic designer to a User
-            Experience Designer II.
+            I’m {profile.name}, a user experience and product designer based in{" "}
+            {profile.location}. For the past five years I’ve been at {profile.company},
+            evolving from a graphic designer to a User Experience Designer II.
           </p>
           <p>
             I started in graphic design and moved into product and UX. That path is why
@@ -44,6 +44,7 @@ export function AboutPage() {
           </p>
         </div>
       </div>
+      <CareerPath />
       <section className="practice" aria-labelledby="practice-heading">
         <h2 id="practice-heading">What I work across</h2>
         <ul className="chips">
