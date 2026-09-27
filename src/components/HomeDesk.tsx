@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import {
-  creativeRoots,
   experiencePoints,
   focusItems,
   hobbies,
@@ -84,20 +83,6 @@ export function HomeDesk() {
               <p className="id-role">{profile.role}</p>
               <div className="id-rule" aria-hidden="true" />
               <p className="id-tagline">{profile.tagline}</p>
-              <dl className="id-meta">
-                <div>
-                  <dt>Location</dt>
-                  <dd>{profile.location}</dd>
-                </div>
-                <div>
-                  <dt>Company</dt>
-                  <dd>{profile.company}</dd>
-                </div>
-                <div>
-                  <dt>Practice</dt>
-                  <dd>{profile.domains}</dd>
-                </div>
-              </dl>
             </article>
           </div>
         </div>
@@ -159,12 +144,23 @@ export function HomeDesk() {
                 <h2 id="design-heading">What I design?</h2>
               </header>
               <div className="folders">
-                {practiceAreas.map((area) => (
-                  <Link key={area.label} className="folder" href={`/work/${area.slug}`}>
-                    <FolderGlyph tone={area.tone} />
-                    <span>{area.label}</span>
-                  </Link>
-                ))}
+                {practiceAreas.map((area) => {
+                  const inner = (
+                    <>
+                      <FolderGlyph tone={area.tone} />
+                      <span>{area.label}</span>
+                    </>
+                  );
+                  return area.slug ? (
+                    <Link key={area.label} className="folder" href={`/work/${area.slug}`}>
+                      {inner}
+                    </Link>
+                  ) : (
+                    <div key={area.label} className="folder">
+                      {inner}
+                    </div>
+                  );
+                })}
               </div>
             </article>
           </div>
@@ -208,21 +204,6 @@ export function HomeDesk() {
           </div>
         </div>
 
-        <div className="piece piece-creative">
-          <div className="shift">
-            <div className="bob">
-              <article className="scrap origin-card" aria-labelledby="origin-heading">
-                <span className="tape tape-right" aria-hidden="true" />
-                <h2 id="origin-heading">Before pixels became products...</h2>
-                <ul className="origin-list">
-                  {creativeRoots.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
