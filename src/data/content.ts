@@ -1,7 +1,7 @@
 export const profile = {
   name: "Anamika Pal",
   givenName: "Anamika",
-  role: "User Experience Designer II",
+  role: "User Experience Designer II at Zeta",
   roleLine: "User Experience Designer II / Product Designer",
   location: "Bangalore, India",
   company: "Zeta",
@@ -25,36 +25,42 @@ export const hobbies = [
     label: "Basketball",
     illustration: "/images/hobbies/basketball.svg",
     rotation: "-8deg",
+    place: "hero",
   },
   {
     hobby: "swimming",
     label: "Swimming",
     illustration: "/images/hobbies/swimming.svg",
-    rotation: "4deg",
+    rotation: "6deg",
+    place: "focus",
   },
   {
     hobby: "painting",
     label: "Painting",
     illustration: "/images/hobbies/painting.svg",
-    rotation: "-3deg",
+    rotation: "-4deg",
+    place: "design",
   },
   {
     hobby: "doodling",
     label: "Doodling",
     illustration: "/images/hobbies/doodling.svg",
-    rotation: "7deg",
+    rotation: "5deg",
+    place: "work",
   },
   {
     hobby: "travel",
     label: "Always planning the next trip",
     illustration: "/images/hobbies/travel.svg",
-    rotation: "-5deg",
+    rotation: "-6deg",
+    place: "about",
   },
   {
     hobby: "cricket",
     label: "Cricket",
     illustration: "/images/hobbies/cricket.svg",
-    rotation: "6deg",
+    rotation: "7deg",
+    place: "contact",
   },
 ] as const;
 
@@ -62,7 +68,8 @@ export const focusItems = [
   "AI-powered experiences",
   "Complex workflows",
   "Enterprise products",
-  "Better ways to work",
+  "Design systems",
+  "Prototyping",
 ] as const;
 
 export const practiceAreas = [
@@ -71,15 +78,15 @@ export const practiceAreas = [
   { label: "AI Products", slug: "ai-ux-audits", tone: "sage" },
   { label: "Data Products", slug: "quark-data-studio", tone: "peach" },
   { label: "Complex Workflows", slug: "operation-center-delegation", tone: "orange" },
-  { label: "Credit + UPI", slug: "unnati-credit-upi", tone: "sand" },
+  { label: "0 → 1 Products", slug: null, tone: "sand" },
 ] as const;
 
 export const experiencePoints = [
   "Enterprise SaaS",
-  "Fintech",
-  "Data products",
-  "Complex workflows",
   "AI experimentation",
+  "Graphic design",
+  "Illustration",
+  "Visual storytelling",
 ] as const;
 
 export const creativeRoots = [
@@ -228,7 +235,7 @@ export const projects: Project[] = [
     eyebrow: "Case Study · Private",
     productName: "Quark Data Studio",
     summary:
-      "Designing a unified data platform — Quark Data Studio — to efficiently manage, process, explore and integrate data applications like reports, extracts, charts and dashboards.",
+      "Designed a unified data platform Quark Data Studio to efficiently manage, process, explore and integrate data applications like reports, extracts, charts and dashboards.",
     tags: ["Enterprise UX", "SaaS", "Data Products", "Complex Workflows"],
     meta: [
       { label: "Role", value: "Product / UX Designer" },
@@ -254,7 +261,7 @@ export const projects: Project[] = [
       {
         title: "The work",
         paragraphs: [
-          "Designing a unified data platform — Quark Data Studio — to efficiently manage, process, explore and integrate data applications like reports, extracts, charts and dashboards.",
+          "Designed a unified data platform Quark Data Studio to efficiently manage, process, explore and integrate data applications like reports, extracts, charts and dashboards.",
           "This case study is private. The page is structured so the narrative and images can be added without redesigning the site.",
         ],
       },

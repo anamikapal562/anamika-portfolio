@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import {
-  creativeRoots,
   experiencePoints,
   focusItems,
   hobbies,
@@ -10,6 +9,20 @@ import {
 import { Link } from "../router";
 import { HobbyIllustration } from "./HobbyIllustration";
 import { BangaloreMark, FolderGlyph, Paperclip, Pin } from "./Icons";
+
+function DeskHobby({ place }: { place: (typeof hobbies)[number]["place"] }) {
+  const hobby = hobbies.find((item) => item.place === place);
+  if (!hobby) return null;
+  return (
+    <HobbyIllustration
+      className={`hobby-spot spot-${place}`}
+      hobby={hobby.hobby}
+      label={hobby.label}
+      illustration={hobby.illustration}
+      rotation={hobby.rotation}
+    />
+  );
+}
 
 export function HomeDesk() {
   const deskRef = useRef<HTMLDivElement>(null);
@@ -84,89 +97,74 @@ export function HomeDesk() {
               <p className="id-role">{profile.role}</p>
               <div className="id-rule" aria-hidden="true" />
               <p className="id-tagline">{profile.tagline}</p>
-              <dl className="id-meta">
-                <div>
-                  <dt>Location</dt>
-                  <dd>{profile.location}</dd>
-                </div>
-                <div>
-                  <dt>Company</dt>
-                  <dd>{profile.company}</dd>
-                </div>
-                <div>
-                  <dt>Practice</dt>
-                  <dd>{profile.domains}</dd>
-                </div>
-              </dl>
             </article>
+            <DeskHobby place="hero" />
           </div>
         </div>
 
-        <div className="piece piece-hobbies">
-          <div className="shift">
-            <p className="hobby-kicker note-font">Outside the pixels →</p>
-            <ul className="hobby-row">
-              {hobbies.map((hobby) => (
-                <HobbyIllustration
-                  key={hobby.hobby}
-                  hobby={hobby.hobby}
-                  label={hobby.label}
-                  illustration={hobby.illustration}
-                  rotation={hobby.rotation}
-                />
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="piece piece-focus">
-          <div className="shift">
-            <div className="bob">
-              <article className="scrap focus-card" aria-labelledby="focus-heading">
-                <span className="tape tape-left" aria-hidden="true" />
-                <span className="holes" aria-hidden="true">
-                  <i />
-                  <i />
-                  <i />
-                </span>
-                <h2 id="focus-heading">
-                  Currently designing →
-                </h2>
-                <ul className="focus-list">
-                  {focusItems.map((item) => (
-                    <li key={item}>
-                      <span className="tick" aria-hidden="true">
-                        ✓
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <div className="piece piece-folders">
-          <div className="shift">
-            <article className="scrap desktop-card" aria-labelledby="design-heading">
-              <header className="desktop-bar">
-                <span className="dots" aria-hidden="true">
-                  <i />
-                  <i />
-                  <i />
-                </span>
-                <h2 id="design-heading">What I design?</h2>
-              </header>
-              <div className="folders">
-                {practiceAreas.map((area) => (
-                  <Link key={area.label} className="folder" href={`/work/${area.slug}`}>
-                    <FolderGlyph tone={area.tone} />
-                    <span>{area.label}</span>
-                  </Link>
-                ))}
+        <div className="piece piece-left">
+          <div className="left-stack">
+            <div className="stack-focus">
+              <div className="shift">
+                <div className="bob">
+                  <article className="scrap focus-card" aria-labelledby="focus-heading">
+                    <span className="tape tape-left" aria-hidden="true" />
+                    <span className="holes" aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                    <h2 id="focus-heading">Currently focused on →</h2>
+                    <ul className="focus-list">
+                      {focusItems.map((item) => (
+                        <li key={item}>
+                          <span className="tick" aria-hidden="true">
+                            ✓
+                          </span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                </div>
               </div>
-            </article>
+              <DeskHobby place="focus" />
+            </div>
+
+            <div className="stack-folders">
+              <div className="shift">
+                <article className="scrap desktop-card" aria-labelledby="design-heading">
+                  <header className="desktop-bar">
+                    <span className="dots" aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                    <h2 id="design-heading">What I design?</h2>
+                  </header>
+                  <div className="folders">
+                    {practiceAreas.map((area) => {
+                      const inner = (
+                        <>
+                          <FolderGlyph tone={area.tone} />
+                          <span>{area.label}</span>
+                        </>
+                      );
+                      return area.slug ? (
+                        <Link key={area.label} className="folder" href={`/work/${area.slug}`}>
+                          {inner}
+                        </Link>
+                      ) : (
+                        <div key={area.label} className="folder">
+                          {inner}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </article>
+              </div>
+              <DeskHobby place="design" />
+            </div>
           </div>
         </div>
 
@@ -208,21 +206,6 @@ export function HomeDesk() {
           </div>
         </div>
 
-        <div className="piece piece-creative">
-          <div className="shift">
-            <div className="bob">
-              <article className="scrap origin-card" aria-labelledby="origin-heading">
-                <span className="tape tape-right" aria-hidden="true" />
-                <h2 id="origin-heading">Before pixels became products...</h2>
-                <ul className="origin-list">
-                  {creativeRoots.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

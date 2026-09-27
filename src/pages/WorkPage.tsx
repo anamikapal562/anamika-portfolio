@@ -1,5 +1,3 @@
-import { BringSection } from "../components/BringSection";
-import { CollaboratorNotes } from "../components/CollaboratorNotes";
 import { ProjectBoard } from "../components/ProjectBoard";
 import { projects } from "../data/content";
 
@@ -12,8 +10,6 @@ export function WorkPage() {
         Designing for complex systems, workflows and the people who use them.
       </p>
       <ProjectBoard projects={projects} />
-      <BringSection />
-      <CollaboratorNotes />
     </article>
   );
 }

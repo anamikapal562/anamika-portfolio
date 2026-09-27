@@ -7,7 +7,7 @@ type Errors = {
   message?: string;
 };
 
-export function ContactPage() {
+export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState("");
 
@@ -35,14 +35,7 @@ export function ContactPage() {
   };
 
   return (
-    <article className="sheet">
-      <p className="kicker">Say hello</p>
-      <h1>Contact</h1>
-      <p className="lede">
-        If you are shaping a complex product and want it to feel clearer, I would like
-        to hear about it.
-      </p>
-      <div className="contact-grid">
+    <div className="contact-grid">
         <form className="letter" onSubmit={onSubmit} noValidate>
           <div className="field">
             <label htmlFor="name">
@@ -106,7 +99,20 @@ export function ContactPage() {
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
           </p>
         </aside>
-      </div>
+    </div>
+  );
+}
+
+export function ContactPage() {
+  return (
+    <article className="sheet">
+      <p className="kicker">Say hello</p>
+      <h1>Contact</h1>
+      <p className="lede">
+        If you are shaping a complex product and want it to feel clearer, I would like
+        to hear about it.
+      </p>
+      <ContactForm />
     </article>
   );
 }
