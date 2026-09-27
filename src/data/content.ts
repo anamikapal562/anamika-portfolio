@@ -25,42 +25,36 @@ export const hobbies = [
     label: "Basketball",
     illustration: "/images/hobbies/basketball.svg",
     rotation: "-8deg",
-    place: "hero",
   },
   {
     hobby: "swimming",
     label: "Swimming",
     illustration: "/images/hobbies/swimming.svg",
     rotation: "6deg",
-    place: "focus",
   },
   {
     hobby: "painting",
     label: "Painting",
     illustration: "/images/hobbies/painting.svg",
     rotation: "-4deg",
-    place: "design",
   },
   {
     hobby: "doodling",
     label: "Doodling",
     illustration: "/images/hobbies/doodling.svg",
     rotation: "5deg",
-    place: "work",
   },
   {
     hobby: "travel",
     label: "Always planning the next trip",
     illustration: "/images/hobbies/travel.svg",
     rotation: "-6deg",
-    place: "about",
   },
   {
     hobby: "cricket",
     label: "Cricket",
     illustration: "/images/hobbies/cricket.svg",
     rotation: "7deg",
-    place: "contact",
   },
 ] as const;
 

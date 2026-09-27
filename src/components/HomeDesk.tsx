@@ -10,20 +10,6 @@ import { Link } from "../router";
 import { HobbyIllustration } from "./HobbyIllustration";
 import { BangaloreMark, FolderGlyph, Paperclip, Pin } from "./Icons";
 
-function DeskHobby({ place }: { place: (typeof hobbies)[number]["place"] }) {
-  const hobby = hobbies.find((item) => item.place === place);
-  if (!hobby) return null;
-  return (
-    <HobbyIllustration
-      className={`hobby-spot spot-${place}`}
-      hobby={hobby.hobby}
-      label={hobby.label}
-      illustration={hobby.illustration}
-      rotation={hobby.rotation}
-    />
-  );
-}
-
 export function HomeDesk() {
   const deskRef = useRef<HTMLDivElement>(null);
 
@@ -98,7 +84,6 @@ export function HomeDesk() {
               <div className="id-rule" aria-hidden="true" />
               <p className="id-tagline">{profile.tagline}</p>
             </article>
-            <DeskHobby place="hero" />
           </div>
         </div>
 
@@ -128,7 +113,6 @@ export function HomeDesk() {
                   </article>
                 </div>
               </div>
-              <DeskHobby place="focus" />
             </div>
 
             <div className="stack-folders">
@@ -163,7 +147,6 @@ export function HomeDesk() {
                   </div>
                 </article>
               </div>
-              <DeskHobby place="design" />
             </div>
           </div>
         </div>
@@ -206,6 +189,17 @@ export function HomeDesk() {
           </div>
         </div>
 
+        <div className="hero-hobbies">
+          {hobbies.map((hobby) => (
+            <HobbyIllustration
+              key={hobby.hobby}
+              hobby={hobby.hobby}
+              label={hobby.label}
+              illustration={hobby.illustration}
+              rotation={hobby.rotation}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
