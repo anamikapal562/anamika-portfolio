@@ -517,6 +517,63 @@
   top: 0.55em;
 }
 
+.hobby-kicker {
+  margin: 0 0 2px;
+  text-align: center;
+  font-size: 26px;
+  color: var(--ink);
+}
+
+.hobby-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 6px;
+  list-style: none;
+}
+
+.hobby button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    scale 0.25s ease,
+    rotate 0.25s ease;
+}
+
+.hobby img {
+  width: 44px;
+  height: 44px;
+}
+
+.hobby-label {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% - 2px);
+  translate: -50% 4px;
+  opacity: 0;
+  max-width: 150px;
+  padding: 0 4px;
+  text-align: center;
+  white-space: normal;
+  font-family: var(--font-note);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ink);
+  pointer-events: none;
+}
+
+.hobby:hover,
+.hobby:focus-within {
+  z-index: 2;
+}
+
 .archive {
   width: min(1040px, calc(100% - 32px));
   margin: 12px auto 48px;
@@ -645,6 +702,18 @@
     rotate: -2deg;
     scale: 1.04;
   }
+
+  .hobby:hover button,
+  .hobby:focus-within button {
+    scale: 1.08;
+    rotate: -4deg;
+  }
+
+  .hobby:hover .hobby-label,
+  .hobby:focus-within .hobby-label {
+    opacity: 1;
+    translate: -50% 0;
+  }
 }
 
 @media (max-width: 759px) {
@@ -696,6 +765,12 @@
     justify-self: center;
   }
 
+  .piece-hobbies {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(520px, 100%);
+  }
+
   .archive-list {
     grid-template-columns: 1fr 1fr;
   }
@@ -726,7 +801,7 @@
   .desk {
     display: block;
     width: min(1140px, calc(100% - 40px));
-    height: 860px;
+    height: 980px;
     margin: 6px auto 10px;
   }
 
@@ -800,6 +875,15 @@
 
   .origin-card {
     --tilt: 3.5deg;
+  }
+
+  .piece-hobbies {
+    width: 430px;
+    left: 50%;
+    bottom: 4px;
+    translate: -50% 0;
+    z-index: 4;
+    --drift: 8px;
   }
 
   .doodles {

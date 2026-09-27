@@ -3,10 +3,12 @@ import {
   creativeRoots,
   experiencePoints,
   focusItems,
+  hobbies,
   practiceAreas,
   profile,
 } from "../data/content";
 import { Link } from "../router";
+import { HobbyIllustration } from "./HobbyIllustration";
 import { BangaloreMark, FolderGlyph, Paperclip, Pin } from "./Icons";
 
 export function HomeDesk() {
@@ -97,6 +99,23 @@ export function HomeDesk() {
                 </div>
               </dl>
             </article>
+          </div>
+        </div>
+
+        <div className="piece piece-hobbies">
+          <div className="shift">
+            <p className="hobby-kicker note-font">Outside the pixels →</p>
+            <ul className="hobby-row">
+              {hobbies.map((hobby) => (
+                <HobbyIllustration
+                  key={hobby.hobby}
+                  hobby={hobby.hobby}
+                  label={hobby.label}
+                  illustration={hobby.illustration}
+                  rotation={hobby.rotation}
+                />
+              ))}
+            </ul>
           </div>
         </div>
 

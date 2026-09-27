@@ -8,7 +8,7 @@ export const profile = {
   experienceLabel: "5+ years experience",
   years: "5+ Years",
   tagline: "5+ years designing products that make complex systems easier to navigate.",
-  domains: "Enterprise UX · Fintech · AI",
+  domains: "Enterprise SaaS · Fintech · Data Products · AI",
   email: "hello@anamikapal.com",
   /** Replace with a real profile URL. Do not invent one. */
   linkedin: null as string | null,
@@ -18,6 +18,45 @@ export const profile = {
   },
   resumePdf: "/images/resume/anamika-pal-resume.pdf",
 } as const;
+
+export const hobbies = [
+  {
+    hobby: "basketball",
+    label: "Basketball",
+    illustration: "/images/hobbies/basketball.svg",
+    rotation: "-8deg",
+  },
+  {
+    hobby: "swimming",
+    label: "Swimming",
+    illustration: "/images/hobbies/swimming.svg",
+    rotation: "4deg",
+  },
+  {
+    hobby: "painting",
+    label: "Painting",
+    illustration: "/images/hobbies/painting.svg",
+    rotation: "-3deg",
+  },
+  {
+    hobby: "doodling",
+    label: "Doodling",
+    illustration: "/images/hobbies/doodling.svg",
+    rotation: "7deg",
+  },
+  {
+    hobby: "travel",
+    label: "Always planning the next trip",
+    illustration: "/images/hobbies/travel.svg",
+    rotation: "-5deg",
+  },
+  {
+    hobby: "cricket",
+    label: "Cricket",
+    illustration: "/images/hobbies/cricket.svg",
+    rotation: "6deg",
+  },
+] as const;
 
 export const focusItems = [
   "AI-powered experiences",
