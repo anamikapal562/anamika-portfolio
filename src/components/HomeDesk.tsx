@@ -1,13 +1,7 @@
 import { useEffect, useRef } from "react";
-import {
-  experiencePoints,
-  focusItems,
-  hobbies,
-  practiceAreas,
-  profile,
-} from "../data/content";
+import { experiencePoints, focusItems, practiceAreas, profile } from "../data/content";
 import { Link } from "../router";
-import { HobbyIllustration } from "./HobbyIllustration";
+import { HobbySticker } from "./HobbySticker";
 import { BangaloreMark, FolderGlyph, Paperclip, Pin } from "./Icons";
 
 export function HomeDesk() {
@@ -49,27 +43,8 @@ export function HomeDesk() {
     <div className="desk-wrap">
       <div className="desk-glow" aria-hidden="true" />
       <div className="desk" ref={deskRef}>
-        <svg className="doodles" viewBox="0 0 1140 860" aria-hidden="true">
-          <path
-            d="M250 150c70 20 90 40 150 28"
-            fill="none"
-            stroke="#e36a24"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          <path d="M392 168l10 12 14-18" fill="none" stroke="#e36a24" strokeWidth="1.6" />
-          <path
-            d="M900 150c-60 30-90 48-140 40"
-            fill="none"
-            stroke="#e36a24"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          <path d="M768 198l-8 12-16-10" fill="none" stroke="#e36a24" strokeWidth="1.6" />
-          <path d="M300 620c40-30 70-36 110-20" fill="none" stroke="#c44712" strokeWidth="1.4" />
-          <circle cx="180" cy="40" r="3" fill="#e36a24" />
-          <path d="M980 520l8 8-8 8" fill="none" stroke="#2f5d45" strokeWidth="1.4" />
-        </svg>
+        <HobbySticker hobby="basketball" className="sticker sticker-hero" />
+        <HobbySticker hobby="swimming" className="sticker sticker-skills" />
 
         <div className="piece piece-id">
           <div className="shift">
@@ -190,22 +165,6 @@ export function HomeDesk() {
         </div>
 
       </div>
-      <section className="hero-hobbies" aria-labelledby="pixels-heading">
-        <h2 id="pixels-heading" className="hobby-kicker note-font">
-          Outside the pixels
-        </h2>
-        <div className="hobby-line">
-          {hobbies.map((hobby) => (
-            <HobbyIllustration
-              key={hobby.hobby}
-              hobby={hobby.hobby}
-              label={hobby.label}
-              illustration={hobby.illustration}
-              rotation={hobby.rotation}
-            />
-          ))}
-        </div>
-      </section>
     </div>
   );
 }
