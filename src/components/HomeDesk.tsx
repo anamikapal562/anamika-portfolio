@@ -189,7 +189,12 @@ export function HomeDesk() {
           </div>
         </div>
 
-        <div className="hero-hobbies">
+      </div>
+      <section className="hero-hobbies" aria-labelledby="pixels-heading">
+        <h2 id="pixels-heading" className="hobby-kicker note-font">
+          Outside the pixels
+        </h2>
+        <div className="hobby-line">
           {hobbies.map((hobby) => (
             <HobbyIllustration
               key={hobby.hobby}
@@ -200,7 +205,7 @@ export function HomeDesk() {
             />
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }
