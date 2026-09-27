@@ -1,0 +1,11 @@
+# Image slots
+
+Replace these files when the real assets are ready. Keep the filenames, or update the paths in `src/data/content.ts`.
+
+| Slot | File |
+| --- | --- |
+| Portrait | `profile/anamika.svg` |
+| Résumé PDF | `resume/anamika-pal-resume.pdf` |
+| Study covers and frames | `projects/*.svg` |
+
+The files currently in this folder are labeled placeholders. They are not project screenshots.

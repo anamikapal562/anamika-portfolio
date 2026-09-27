@@ -1,123 +1,77 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useEffect, useRef } from "react";
+import { Footer } from "./components/Footer";
+import { Nav } from "./components/Nav";
+import { metaFor } from "./data/content";
+import { AboutPage } from "./pages/AboutPage";
+import { CaseStudyPage } from "./pages/CaseStudyPage";
+import { ContactPage } from "./pages/ContactPage";
+import { HomePage } from "./pages/HomePage";
+import { NotFoundPage } from "./pages/NotFoundPage";
+import { ResumePage } from "./pages/ResumePage";
+import { WorkPage } from "./pages/WorkPage";
+import { useRouter } from "./use-router";
+import "./styles/global.css";
+import "./styles/home.css";
+import "./styles/pages.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+function Page() {
+  const { path } = useRouter();
+  const meta = metaFor(path);
+  const first = useRef(true);
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Anamika Pal — Portfolio</h1>
-          <p>
-            Edit <code>src/App.tsx</code> to add projects, experience, and contact
-            details.
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+  useEffect(() => {
+    document.title = meta.title;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", meta.description);
+    document
+      .querySelector('meta[property="og:title"]')
+      ?.setAttribute("content", meta.title);
+    document
+      .querySelector('meta[property="og:description"]')
+      ?.setAttribute("content", meta.description);
+    document
+      .querySelector('meta[name="twitter:title"]')
+      ?.setAttribute("content", meta.title);
+    document
+      .querySelector('meta[name="twitter:description"]')
+      ?.setAttribute("content", meta.description);
 
-      <div className="ticks"></div>
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    document.getElementById("content")?.focus();
+  }, [path, meta.title, meta.description]);
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+  if (path === "/") return <HomePage />;
+  if (path === "/work") return <WorkPage />;
+  if (path.startsWith("/work/")) {
+    return <CaseStudyPage slug={decodeURIComponent(path.slice("/work/".length))} />;
+  }
+  if (path === "/about") return <AboutPage />;
+  if (path === "/resume") return <ResumePage />;
+  if (path === "/contact") return <ContactPage />;
+  return <NotFoundPage />;
 }
 
-export default App
+export default function App() {
+  const { path } = useRouter();
+  const meta = metaFor(path);
+
+  return (
+    <div className="site">
+      <a className="skip" href="#content">
+        Skip to content
+      </a>
+      <Nav />
+      <main id="content" tabIndex={-1}>
+        <p className="sr-only" role="status">
+          {meta.title}
+        </p>
+        <Page />
+      </main>
+      <Footer />
+    </div>
+  );
+}
