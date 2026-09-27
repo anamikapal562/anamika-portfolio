@@ -163,43 +163,7 @@ a:hover {
 }
 
 .site {
-  position: relative;
-  z-index: 1;
   min-height: 100vh;
-}
-
-body.home-canvas {
-  background-image: var(--grain);
-}
-
-.sketch-grid {
-  --gx: 50%;
-  --gy: 24%;
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(to right, rgba(90, 62, 40, 0.075) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(90, 62, 40, 0.075) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-.sketch-grid::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(42, 36, 32, 0.34) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(42, 36, 32, 0.34) 1px, transparent 1px);
-  background-size: 56px 56px;
-  opacity: 0;
-  mask-image: radial-gradient(circle 128px at var(--gx) var(--gy), #000 0%, transparent 74%);
-  transition: opacity 0.25s ease;
-}
-
-.sketch-grid.is-lit::after {
-  opacity: 1;
 }
 
 main:focus {

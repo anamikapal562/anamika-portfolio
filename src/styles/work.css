@@ -467,37 +467,6 @@
   margin: 28px auto 24px;
 }
 
-.made-with {
-  max-width: 46ch;
-  margin: 22px auto 0;
-  text-align: center;
-  color: var(--ink-soft);
-  font-size: 15.5px;
-  line-height: 1.55;
-}
-
-.collab-mark {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--ink);
-  font-family: var(--font-ui);
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.brand-mark {
-  width: 13px;
-  height: 19px;
-  flex: 0 0 auto;
-}
-
-.brand-mark-cursor {
-  width: 16px;
-  height: 16px;
-  color: var(--ink);
-}
-
 .closing {
   text-align: center;
   padding: 28px 12px 8px;

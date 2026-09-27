@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: 22px;
   width: min(460px, calc(100% - 28px));
-  margin: 36px auto 72px;
+  margin: 36px auto 4px;
   z-index: 1;
 }
 
@@ -544,88 +544,43 @@
   max-width: 11em;
 }
 
-.sticker-host,
-.site-footer {
+.hero-hobbies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: min(720px, calc(100% - 28px));
+  margin: 20px auto 88px;
+}
+
+.hobby-kicker {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.hobby-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  animation: line-rock 9s ease-in-out infinite;
+}
+
+.hero-hobbies .hobby {
   position: relative;
+  flex: 0 0 auto;
 }
 
-.sticker {
-  position: absolute;
-  z-index: 4;
-  width: 40px;
-  height: 40px;
-}
-
-.sticker button,
-.sticker img {
-  width: 36px;
-  height: 36px;
-}
-
-.sticker-hero {
-  top: 6px;
-  right: 4%;
-}
-
-.sticker-skills {
-  left: 8px;
-  bottom: 10px;
-}
-
-.sticker-work {
-  top: -6px;
-  right: 0;
-}
-
-.sticker-bring,
-.sticker-notes {
-  top: 4px;
-  right: 4px;
-}
-
-.sticker-footer {
-  top: 8px;
-  left: 0;
-}
-
-.home-follow .section-head,
-.home-follow .bring h2,
-.home-follow .notes-head {
-  padding-right: 52px;
-}
-
-.home-follow .project-visual {
-  min-height: 0;
-}
-
-.home-follow .project-visual img {
-  width: 100%;
-  height: 112px;
-  min-height: 0;
-}
-
-@media (min-width: 800px) {
-  .home-follow .layout-feature .project-card,
-  .home-follow .layout-wide .project-card {
-    grid-template-columns: 168px 1fr;
-    min-height: 0;
+@keyframes line-rock {
+  0%,
+  100% {
+    rotate: -4deg;
   }
-
-  .home-follow .layout-feature .project-visual,
-  .home-follow .layout-wide .project-visual,
-  .home-follow .layout-half .project-visual {
-    min-height: 0;
-  }
-
-  .home-follow .layout-feature .project-visual img,
-  .home-follow .layout-wide .project-visual img {
-    position: static;
-    height: 148px;
-    min-height: 0;
-  }
-
-  .home-follow .layout-half .project-visual img {
-    height: 108px;
+  50% {
+    rotate: 3.5deg;
   }
 }
 
@@ -921,7 +876,7 @@
     display: block;
     width: min(1140px, calc(100% - 40px));
     height: 620px;
-    margin: 52px auto 88px;
+    margin: 52px auto 0;
   }
 
   .piece {
@@ -951,16 +906,8 @@
     --tilt: -6.5deg;
   }
 
-  .sticker-hero {
-    top: -22px;
-    left: 44%;
-    right: auto;
-  }
-
-  .sticker-skills {
-    left: auto;
-    right: -6px;
-    bottom: 18px;
+  .hero-hobbies {
+    margin-top: 28px;
   }
 
   .desktop-card {
