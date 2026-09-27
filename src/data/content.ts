@@ -25,36 +25,42 @@ export const hobbies = [
     label: "Basketball",
     illustration: "/images/hobbies/basketball.svg",
     rotation: "-8deg",
+    place: "hero",
   },
   {
     hobby: "swimming",
     label: "Swimming",
     illustration: "/images/hobbies/swimming.svg",
-    rotation: "4deg",
+    rotation: "6deg",
+    place: "focus",
   },
   {
     hobby: "painting",
     label: "Painting",
     illustration: "/images/hobbies/painting.svg",
-    rotation: "-3deg",
+    rotation: "-4deg",
+    place: "design",
   },
   {
     hobby: "doodling",
     label: "Doodling",
     illustration: "/images/hobbies/doodling.svg",
-    rotation: "7deg",
+    rotation: "5deg",
+    place: "work",
   },
   {
     hobby: "travel",
     label: "Always planning the next trip",
     illustration: "/images/hobbies/travel.svg",
-    rotation: "-5deg",
+    rotation: "-6deg",
+    place: "about",
   },
   {
     hobby: "cricket",
     label: "Cricket",
     illustration: "/images/hobbies/cricket.svg",
-    rotation: "6deg",
+    rotation: "7deg",
+    place: "contact",
   },
 ] as const;
 
@@ -62,16 +68,17 @@ export const focusItems = [
   "AI-powered experiences",
   "Complex workflows",
   "Enterprise products",
-  "Better ways to work",
+  "Design systems",
+  "Prototyping",
 ] as const;
 
 export const practiceAreas = [
-  { label: "Enterprise SaaS", slug: "quark-data-studio", tone: "clay" },
+  { label: "Enterprise UX", slug: "quark-data-studio", tone: "clay" },
   { label: "Fintech & Banking", slug: "unnati-credit-upi", tone: "brown" },
   { label: "AI Products", slug: "ai-ux-audits", tone: "sage" },
-  { label: "Illustrations", slug: null, tone: "peach" },
+  { label: "Data Products", slug: "quark-data-studio", tone: "peach" },
   { label: "Complex Workflows", slug: "operation-center-delegation", tone: "orange" },
-  { label: "Animations", slug: null, tone: "sand" },
+  { label: "0 → 1 Products", slug: null, tone: "sand" },
 ] as const;
 
 export const experiencePoints = [

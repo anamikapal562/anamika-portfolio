@@ -170,6 +170,10 @@ main:focus {
   outline: none;
 }
 
+#content {
+  scroll-margin-top: 88px;
+}
+
 .note-font {
   font-family: var(--font-note);
   font-weight: 600;
