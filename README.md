@@ -1,15 +1,15 @@
-# anamika-portfolio
+# Anamika Pal — portfolio
 
-Personal portfolio site built with [Vite](https://vite.dev/) and [React](https://react.dev/).
+Personal portfolio for Anamika Pal, a user experience and product designer in Bangalore. Built with Vite and React, without a UI framework.
 
-## Development
+## Develop
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open [http://localhost:5173](http://localhost:5173).
 
 ## Scripts
 
@@ -17,9 +17,18 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 | --- | --- |
 | `npm run dev` | Start the Vite dev server |
 | `npm run build` | Type-check and production build |
-| `npm run preview` | Preview the production build locally |
+| `npm run preview` | Preview the production build |
 | `npm run lint` | Run Oxlint |
 
-## Cloud Agents
+## Replace personal assets
 
-Environment configuration lives in [`.cursor/environment.json`](.cursor/environment.json). The `dev` terminal starts the Vite server on port 5173.
+Paths live in `src/data/content.ts` and `public/images/`.
+
+- Portrait: `public/images/profile/anamika.svg`
+- Project visuals: `public/images/projects/`
+- Résumé PDF: `public/images/resume/anamika-pal-resume.pdf` (the résumé page enables the download once this file is a real PDF)
+- Email address: `profile.email` in `src/data/content.ts`
+
+## Pages
+
+Home, Work, three case-study frames, About, Résumé, and Contact. Routing is a small client-side history router, so a static host needs to serve `index.html` for those paths.
