@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: 22px;
   width: min(460px, calc(100% - 28px));
-  margin: 36px auto 32px;
+  margin: 36px auto 4px;
   z-index: 1;
 }
 
@@ -544,85 +544,66 @@
   max-width: 11em;
 }
 
-.hobby-spot {
-  position: absolute;
-  z-index: 4;
-  width: 52px;
-  height: 52px;
+.hero-hobbies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: min(720px, calc(100% - 28px));
+  margin: 20px auto 88px;
 }
 
-.spot-hero {
-  top: 18px;
-  right: 12px;
+.hobby-kicker {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--ink);
 }
 
-.spot-focus {
-  top: 12px;
-  right: 8px;
-  bottom: auto;
+.hobby-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  animation: line-rock 9s ease-in-out infinite;
 }
 
-.stack-focus .focus-card {
-  padding-right: 54px;
+.hero-hobbies .hobby {
+  position: relative;
+  flex: 0 0 auto;
 }
 
-.spot-design {
-  left: 6px;
-  bottom: 8px;
-}
-
-.spot-work,
-.spot-about,
-.spot-contact {
-  top: 2px;
-  right: 0;
+@keyframes line-rock {
+  0%,
+  100% {
+    rotate: -4deg;
+  }
+  50% {
+    rotate: 3.5deg;
+  }
 }
 
 .home-follow {
   width: min(1100px, calc(100% - 32px));
-  margin: 0 auto 12px;
+  margin: 8px auto 72px;
 }
 
 .home-follow .archive {
-  position: relative;
   width: 100%;
   margin: 0;
 }
 
-.home-follow .section-head,
-.home-personal,
-.home-contact {
-  position: relative;
-  padding-right: 68px;
+.home-follow .section-head {
+  margin-bottom: 8px;
 }
 
 .home-follow .bring {
-  margin-top: 40px;
+  margin-top: 104px;
 }
 
 .home-follow .notes {
-  margin-top: 48px;
-}
-
-.home-personal,
-.home-contact {
-  margin-top: 48px;
-}
-
-.home-personal h2,
-.home-contact h2 {
-  font-family: var(--font-ui);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  font-size: clamp(28px, 4vw, 36px);
-  line-height: 1.05;
-  margin: 4px 0 12px;
-}
-
-.home-personal p {
-  max-width: 62ch;
-  color: var(--ink-soft);
-  margin-bottom: 10px;
+  margin-top: 112px;
 }
 
 .archive {
@@ -894,8 +875,8 @@
   .desk {
     display: block;
     width: min(1140px, calc(100% - 40px));
-    height: 600px;
-    margin: 52px auto 36px;
+    height: 620px;
+    margin: 52px auto 0;
   }
 
   .piece {
@@ -925,25 +906,8 @@
     --tilt: -6.5deg;
   }
 
-  .spot-hero {
-    top: 132px;
-    right: -64px;
-  }
-
-  .spot-focus {
-    top: 36px;
-    right: -58px;
-    bottom: auto;
-  }
-
-  .stack-focus .focus-card {
-    padding-right: 16px;
-  }
-
-  .spot-design {
-    left: auto;
-    right: -58px;
-    bottom: 42px;
+  .hero-hobbies {
+    margin-top: 28px;
   }
 
   .desktop-card {

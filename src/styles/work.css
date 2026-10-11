@@ -528,6 +528,158 @@
   color: var(--accent);
 }
 
+.signature {
+  position: relative;
+  width: 100vw;
+  margin: 56px calc(50% - 50vw) 0;
+  padding: 72px max(24px, calc(50vw - 560px)) 88px;
+  background-color: transparent;
+  background-image:
+    linear-gradient(to right, rgba(90, 62, 40, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(90, 62, 40, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.signature-layout {
+  display: grid;
+  gap: 36px;
+  align-items: end;
+}
+
+.maker-stamps {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.maker-stamp {
+  width: 84px;
+  min-height: 104px;
+  padding: 16px 10px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fffdf8;
+  filter: drop-shadow(0 10px 16px rgba(72, 46, 24, 0.08));
+  --hole: 4px;
+  --pitch: 14px;
+  mask-image:
+    radial-gradient(circle at left center, transparent var(--hole), #000 calc(var(--hole) + 0.6px)) left / 8px var(--pitch) repeat-y,
+    radial-gradient(circle at right center, transparent var(--hole), #000 calc(var(--hole) + 0.6px)) right / 8px var(--pitch) repeat-y,
+    radial-gradient(circle at center top, transparent var(--hole), #000 calc(var(--hole) + 0.6px)) top / var(--pitch) 8px repeat-x,
+    radial-gradient(circle at center bottom, transparent var(--hole), #000 calc(var(--hole) + 0.6px)) bottom / var(--pitch) 8px repeat-x;
+  mask-composite: intersect;
+}
+
+.maker-stamp span {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+.brand-mark {
+  width: 22px;
+  height: 32px;
+}
+
+.brand-mark-cursor {
+  width: 28px;
+  height: 28px;
+  color: #2f6fed;
+}
+
+.signature-copy p {
+  max-width: 34ch;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.signature-copy h2 {
+  margin-top: 8px;
+  font-family: var(--font-ui);
+  font-weight: 650;
+  font-size: clamp(36px, 4vw, 52px);
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.signoff {
+  justify-self: end;
+  text-align: right;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: clamp(52px, 6.4vw, 84px);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  color: rgba(126, 134, 130, 0.42);
+}
+
+.signoff span:first-child {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.38em;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: rgba(126, 134, 130, 0.55);
+}
+
+.signoff-heart {
+  color: var(--accent-hot);
+  font-size: 0.62em;
+}
+
+.to-top {
+  position: absolute;
+  right: max(20px, calc(50vw - 700px));
+  bottom: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #1d1d1d;
+  color: #f7f3ea;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.to-top:hover {
+  background: #111;
+}
+
+.to-top:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (min-width: 860px) {
+  .signature-layout {
+    grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
+    gap: 48px;
+  }
+}
+
+@media (max-width: 859px) {
+  .signature {
+    padding-bottom: 96px;
+  }
+
+  .signoff {
+    justify-self: start;
+    text-align: left;
+    font-size: clamp(44px, 12vw, 64px);
+  }
+}
+
 @media (hover: hover) {
   .project-card:hover {
     translate: 0 -6px;
